@@ -498,6 +498,7 @@ span {
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
         color: vars.$color-primary;
+        margin-top: -5px;
     }
 
     &__info-name {
@@ -581,6 +582,7 @@ span {
         height: max-content;
         line-height: 1.5;
         font-size: 16px;
+        cursor: pointer;
     }
 
     &__box {
@@ -963,21 +965,7 @@ span {
     opacity: .7;
 }
 
-.footer {
-    &__info-titles {}
 
-    &__bottom-v1 {}
-
-    &__bottom-inner {}
-
-    &__bottom-list {}
-
-    &__bottom-item {}
-
-    &__bottom-link {}
-
-    &__bottom-copy {}
-}
 
 .footer-v1 {
     background-image: url(../images/footer-v1__top-bg.jpg);
@@ -1111,42 +1099,180 @@ span {
         border-bottom: 2px solid vars.$color-primary;
         padding: 1px 2px;
     }
-
-    &__links {}
-
-    &__links-title {}
-
-    &__links-list {}
-
-    &__links-item {}
-
-    &__link {}
-
-    &__classes {}
-
-    &__classes-title {}
-
-    &__classes-list {}
-
-    &__classes-item {}
-
-    &__classes-link {}
-
-    &__contacts {}
-
-    &__contacts-title {}
-
-    &__contacts-info {}
-
-    &__contacts-info-address {}
-
-    &__contacts-info-phone {}
-
-    &__contacts-info-email {}
-
-    &__contacts-button {}
 }
-.footer__bottom-v1{
+
+.footer__bottom-v1 {
     background-color: vars.$color-primary;
     color: vars.$color-white;
+}
+
+.footer-v3 {
+    background-image: url(../images/footer-v3-bg.jpg);
+    background-position: center 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &__top-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 130px;
+        max-height: 582px;
+        margin-bottom: 80px;
+    }
+
+    &__text-box {
+        max-width: 461px;
+        align-content: center;
+    }
+
+    &__title {
+        @extend %nunito-800;
+        font-size: 56px;
+        line-height: 1.2;
+        margin-bottom: 8px;
+    }
+
+    &__text {
+        font-size: 20px;
+        line-height: 1.5;
+        opacity: .7;
+    }
+
+    &__form {
+        width: 640px;
+        background-color: vars.$color-yellow;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        border-radius: 20px;
+        padding: 28px 24px;
+    }
+
+    &__form-inputs {
+        border: none;
+        border-radius: 10px;
+        padding: 30px 23px;
+        font-family: 'Poppins-Regular', sans-serif;
+        font-size: 20px;
+
+        &::placeholder {
+            color: vars.$color-primary;
+            opacity: .3;
+        }
+    }
+
+    &__form-textarea {
+        resize: none;
+        max-height: 220px;
+        padding-bottom: 160px;
+        overflow: hidden;
+    }
+
+    &__form-button {
+        @extend %poppins-600;
+        line-height: 1.5;
+        font-size: 20px;
+        margin-top: 8px;
+        padding: 20px;
+        height: 70px;
+        border: none;
+        border-radius: 35px;
+        background-color: vars.$color-red;
+        color: vars.$color-white;
+    }
+
+    &__box {
+        display: flex;
+        gap: 160px;
+        height: 252px;
+        margin-bottom: 64px;
+    }
+
+    &__info {
+        display: flex;
+        justify-content: space-between;
+        gap: 120px;
+    }
+
+    &__info-titles {
+        @extend %nunito-800;
+        font-size: 24px;
+        margin-bottom: 16px;
+        line-height: 1.3;
+    }
+
+    &__info ul li {
+        opacity: .8;
+        line-height: 1.5;
+    }
+
+    &__info ul li+li {
+        margin-top: 12px;
+    }
+
+    &__links {
+        white-space: nowrap;
+    }
+
+    &__classes {
+        white-space: nowrap;
+    }
+
+    &__contacts {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__contacts-info {
+        opacity: .8;
+        line-height: 1.5;
+    }
+
+    &__contacts-info-address {
+        margin-bottom: 22px;
+    }
+
+    &__contacts-info-phone {
+        display: inline-block;
+        margin-bottom: 12px;
+    }
+
+    &__contacts-button {
+        align-self: start;
+        margin-top: auto;
+        @extend %poppins-600;
+        line-height: 1.5;
+        border: none;
+        background-color: transparent;
+        border-bottom: 2px solid vars.$color-primary;
+        padding: 1px 2px;
+    }
+
+    &__social-box-text {
+        line-height: 1.5;
+        opacity: .8;
+        margin-bottom: 72px;
+    }
+
+    &__social-list {
+        margin-top: auto;
+        display: flex;
+        gap: 8px;
+    }
+
+    &__social-item {
+        text-transform: uppercase;
+        background-color: vars.$color-primary;
+        color: vars.$color-white;
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        align-content: center;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    &__logo {
+        margin-bottom: 20px;
+    }
 }
