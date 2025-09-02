@@ -968,6 +968,7 @@ span {
 
 
 .footer-v1 {
+    margin-top: 120px;
     background-image: url(../images/footer-v1__top-bg.jpg);
     background-position: center top;
     background-size: contain;
@@ -1274,5 +1275,125 @@ span {
 
     &__logo {
         margin-bottom: 20px;
+    }
+}
+
+.header-v1 {
+    background-image: url('../images/homepage-v1-header-bg.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 530px;
+    margin-bottom: 72px;
+
+    &__content {
+        margin-top: 52px;
+    }
+
+    &__content-title {
+        padding-bottom: 20px;
+        max-width: 1002px;
+        text-align: center;
+        margin: 0 auto;
+        line-height: 80px;
+    }
+
+    &__content-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        height: 48px;
+    }
+
+    &__content-button {
+        border: none;
+        background-color: transparent;
+        line-height: 1.5;
+        font-size: 16px;
+        cursor: pointer;
+        transition: transform .1s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    &__content-button-join {
+        background-color: vars.$color-red;
+        color: vars.$color-white;
+        @extend %poppins-600;
+        padding: 12px;
+        width: 186px;
+        border-radius: 24px;
+    }
+
+    &__content-button-view {
+        @extend %poppins-400;
+        color: rgba($color: #222443, $alpha: .7);
+        padding: 12px 0 12px 60px;
+        align-items: center;
+        position: relative;
+
+        &::before {
+            content: '';
+            background-image: url('../images/header-v1-view-button.svg');
+            left: 0;
+            top: 0;
+            height: 48px;
+            width: 48px;
+            position: absolute;
+        }
+    }
+}
+
+.why-kidztar {
+    margin-bottom: 120px;
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 80px;
+    }
+
+    &__content {
+        height: 314px;
+        width: 525px;
+    }
+
+    &__title {
+        @extend %nunito-800;
+        line-height: 1.2;
+        font-size: 48px;
+        margin-bottom: 12px;
+    }
+
+    &__text {
+        font-size: 20px;
+        line-height: 1.5;
+        opacity: .7;
+        padding-bottom: 50px;
+    }
+
+    &__button {
+        border: none;
+        border-radius: 20px;
+        background-color: vars.$color-red;
+        color: vars.$color-white;
+        @extend %poppins-600;
+        padding: 8px;
+        line-height: 1.5;
+        font-size: 16px;
+    }
+
+    &__link {
+        padding: 12px 40px;
+    }
+
+    &__image img {
+        display: block;
+        max-width: 644px;
+        max-width: 100%;
+        height: auto;
     }
 }
