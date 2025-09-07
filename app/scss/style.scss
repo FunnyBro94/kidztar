@@ -1420,6 +1420,12 @@ span {
         justify-content: start;
         width: 387px;
         border-radius: 20px;
+        text-align: center;
+    }
+
+    &__item-content {
+        width: 306px;
+        margin-inline: auto;
     }
 
     &__card-swiper {
@@ -1433,6 +1439,8 @@ span {
     }
 
     &__item-title {
+        @extend %nunito-800;
+        font-size: 32px;
         margin-top: 28px;
         margin-bottom: 16px;
         text-align: center;
@@ -1459,6 +1467,7 @@ span {
 
     &__item-item-value {
         @extend %poppins-600;
+        white-space: nowrap;
     }
 
     &__item-button {
