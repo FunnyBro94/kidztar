@@ -6,6 +6,24 @@ const commentsSwiper = new Swiper(".comments__swiper", {
     },
 });
 
+const discoverSlider = new Swiper(".discover-swiper", {
+    slidesPerView: 3,
+    spaceBetween: 40,
+    pagination: {
+        el: ".discover-swiper-pagination",
+        clickable: true,
+    },
+});
+const discoverCardSwiper = new Swiper(".discover__card-swiper", {
+    slidesPerView: 1,
+    nested: true,
+    loop: true,
+    initialSlide: 1,
+    pagination: {
+        el: ".discover__card-pagination",
+    },
+});
+
 const expTeachersItemCard = document.querySelectorAll('.exp-teachers__item');
 const expTeachersItemCard__active = document.querySelectorAll('.exp-teachers__item--active');
 const expTeachersSocial = document.querySelector('.exp-teachers__social');
