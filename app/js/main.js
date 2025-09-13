@@ -23,6 +23,22 @@ const discoverCardSwiper = new Swiper(".discover__card-swiper", {
         el: ".discover__card-pagination",
     },
 });
+const testimonialSwiper = new Swiper(".testimonial__swiper", {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    loop: false,
+    pagination: {
+        el: ".pagination",
+        clickable: true,
+        renderBullet: function (index, className) {
+          return '<span class="' + className + '">' + (index + 1) + "</span>";
+        },
+    },
+    navigation: {
+        nextEl: ".pagination-button-next",
+        prevEl: ".pagination-button-prev",
+    },
+});
 
 const expTeachersItemCard = document.querySelectorAll('.exp-teachers__item');
 const expTeachersItemCard__active = document.querySelectorAll('.exp-teachers__item--active');
