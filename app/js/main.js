@@ -23,6 +23,22 @@ const discoverCardSwiper = new Swiper(".discover__card-swiper", {
         el: ".discover__card-pagination",
     },
 });
+const testimonialSwiper = new Swiper(".testimonial__swiper", {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    loop: false,
+    pagination: {
+        el: ".pagination__dots",
+        clickable: true,
+        renderBullet: function (index, className) {
+            return '<span class="' + className + '">' + (index + 1) + "</span>";
+        },
+    },
+    navigation: {
+        nextEl: ".pagination-button--next",
+        prevEl: ".pagination-button--prev",
+    },
+});
 
 const expTeachersItemCard = document.querySelectorAll('.exp-teachers__item');
 const expTeachersItemCard__active = document.querySelectorAll('.exp-teachers__item--active');
@@ -51,4 +67,41 @@ items.forEach(item => {
             item.classList.add('questions__item--active');
         }
     });
+});
+
+
+const questions = Array.from(document.querySelectorAll('.questions-v1__item'));
+
+questions.forEach((item) => {
+    item.addEventListener('click', questionHandler);
+});
+
+function questionHandler(e) {
+    e.preventDefault();
+
+    let currentItem = e.target.closest('.questions-v1__item');
+    let currentContent = currentItem.querySelector('.questions-v1__item-text');
+
+    questions.forEach((el) => {
+        if (el !== currentItem) {
+            el.classList.remove('questions-v1__item--active');
+            el.querySelector('.questions-v1__item-text').style.maxHeight = 0;
+        }
+    });
+
+    currentItem.classList.toggle('questions-v1__item--active');
+    if (currentItem.classList.contains('questions-v1__item--active')) {
+        currentContent.style.maxHeight = currentContent.scrollHeight + 'px';
+    } else {
+        currentContent.style.maxHeight = 0;
+    }
+}
+
+const swiper = new Swiper(".events__swiper", {
+    loop: true,
+    spaceBetween: 20,
+    navigation: {
+        nextEl: ".swiperButton-next",
+        prevEl: ".swiperButton-prev",
+    },
 });
