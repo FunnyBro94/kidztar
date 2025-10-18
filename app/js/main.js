@@ -40,6 +40,31 @@ const testimonialSwiper = new Swiper(".testimonial__swiper", {
     },
 });
 
+const discoverSectionSwiper = new Swiper(".discover-section__swiper", {
+    slidesPerView: 2,
+    spaceBetween: 40,
+    loop: false,
+    pagination: {
+        el: ".pagination__dots",
+        clickable: true,
+        renderBullet: function (index, className) {
+            return '<span class="' + className + '">' + (index + 1) + "</span>";
+        },
+    },
+    navigation: {
+        nextEl: ".pagination-button--next",
+        prevEl: ".pagination-button--prev",
+    },
+});
+
+const reviewSwiper = new Swiper(".reviews-swiper", {
+    loop: true,
+    navigation: {
+        nextEl: ".primary-swiper-button-next",
+        prevEl: ".primary-swiper-button-prev",
+    },
+});
+
 const expTeachersItemCard = document.querySelectorAll('.exp-teachers__item');
 const expTeachersItemCard__active = document.querySelectorAll('.exp-teachers__item--active');
 const expTeachersSocial = document.querySelector('.exp-teachers__social');
@@ -104,4 +129,17 @@ const swiper = new Swiper(".events__swiper", {
         nextEl: ".swiperButton-next",
         prevEl: ".swiperButton-prev",
     },
+});
+
+const tabButtons = document.querySelectorAll('.tab-btn');
+const insideKidztarTabContent = document.querySelectorAll('.inside-kidztar__tab-content');
+
+tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        tabButtons.forEach(btn => btn.classList.remove('tab-btn--active'));
+        insideKidztarTabContent.forEach(content => content.classList.remove('inside-kidztar__tab-content--active'));
+
+        button.classList.add('tab-btn--active');
+        document.getElementById(button.dataset.tab).classList.add('inside-kidztar__tab-content--active');
+    });
 });
