@@ -65,6 +65,15 @@ const reviewSwiper = new Swiper(".reviews-swiper", {
     },
 });
 
+const fromBlogSwiper = new Swiper(".from-blog-slider__swiper", {
+    loop: true,
+    spaceBetween: 40,
+    navigation: {
+        nextEl: ".from-blog-slider__button--next",
+        prevEl: ".from-blog-slider__button--prev",
+    },
+});
+
 const expTeachersItemCard = document.querySelectorAll('.exp-teachers__item');
 const expTeachersItemCard__active = document.querySelectorAll('.exp-teachers__item--active');
 const expTeachersSocial = document.querySelector('.exp-teachers__social');
@@ -116,6 +125,33 @@ function questionHandler(e) {
 
     currentItem.classList.toggle('questions-v1__item--active');
     if (currentItem.classList.contains('questions-v1__item--active')) {
+        currentContent.style.maxHeight = currentContent.scrollHeight + 'px';
+    } else {
+        currentContent.style.maxHeight = 0;
+    }
+}
+
+const faqQuestions = Array.from(document.querySelectorAll('.faq-questions__item'));
+
+faqQuestions.forEach((item) => {
+    item.addEventListener('click', faqQuestionHandler);
+});
+
+function faqQuestionHandler(e) {
+    e.preventDefault();
+
+    let currentItem = e.target.closest('.faq-questions__item');
+    let currentContent = currentItem.querySelector('.faq-questions__item-text');
+
+    faqQuestions.forEach((el) => {
+        if (el !== currentItem) {
+            el.classList.remove('faq-questions__item--active');
+            el.querySelector('.faq-questions__item-text').style.maxHeight = 0;
+        }
+    });
+
+    currentItem.classList.toggle('faq-questions__item--active');
+    if (currentItem.classList.contains('faq-questions__item--active')) {
         currentContent.style.maxHeight = currentContent.scrollHeight + 'px';
     } else {
         currentContent.style.maxHeight = 0;
