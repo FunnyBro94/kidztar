@@ -40,12 +40,41 @@ const testimonialSwiper = new Swiper(".testimonial__swiper", {
     },
 });
 
-const expTeachersItemCard = document.querySelectorAll('.exp-teachers__item');
-const expTeachersItemCard__active = document.querySelectorAll('.exp-teachers__item--active');
-const expTeachersSocial = document.querySelector('.exp-teachers__social');
-const expTeachersPhotoDecor = document.querySelector('.exp-teachers__photo-decor');
-const expTeachersInfo_bg = document.querySelector('.exp-teachers__info');
+const discoverSectionSwiper = new Swiper(".discover-section__swiper", {
+    slidesPerView: 2,
+    spaceBetween: 40,
+    loop: false,
+    pagination: {
+        el: ".pagination__dots",
+        clickable: true,
+        renderBullet: function (index, className) {
+            return '<span class="' + className + '">' + (index + 1) + "</span>";
+        },
+    },
+    navigation: {
+        nextEl: ".pagination-button--next",
+        prevEl: ".pagination-button--prev",
+    },
+});
 
+const reviewSwiper = new Swiper(".reviews-swiper", {
+    loop: true,
+    navigation: {
+        nextEl: ".primary-swiper-button-next",
+        prevEl: ".primary-swiper-button-prev",
+    },
+});
+
+const fromBlogSwiper = new Swiper(".from-blog-slider__swiper", {
+    loop: true,
+    spaceBetween: 40,
+    navigation: {
+        nextEl: ".from-blog-slider__button--next",
+        prevEl: ".from-blog-slider__button--prev",
+    },
+});
+
+const expTeachersItemCard = document.querySelectorAll('.exp-teachers__item');
 
 expTeachersItemCard.forEach(teacherCard => {
     teacherCard.addEventListener('mouseenter', () => {
@@ -97,6 +126,33 @@ function questionHandler(e) {
     }
 }
 
+const faqQuestions = Array.from(document.querySelectorAll('.faq-questions__item'));
+
+faqQuestions.forEach((item) => {
+    item.addEventListener('click', faqQuestionHandler);
+});
+
+function faqQuestionHandler(e) {
+    e.preventDefault();
+
+    let currentItem = e.target.closest('.faq-questions__item');
+    let currentContent = currentItem.querySelector('.faq-questions__item-text');
+
+    faqQuestions.forEach((el) => {
+        if (el !== currentItem) {
+            el.classList.remove('faq-questions__item--active');
+            el.querySelector('.faq-questions__item-text').style.maxHeight = 0;
+        }
+    });
+
+    currentItem.classList.toggle('faq-questions__item--active');
+    if (currentItem.classList.contains('faq-questions__item--active')) {
+        currentContent.style.maxHeight = currentContent.scrollHeight + 'px';
+    } else {
+        currentContent.style.maxHeight = 0;
+    }
+}
+
 const swiper = new Swiper(".events__swiper", {
     loop: true,
     spaceBetween: 20,
@@ -104,4 +160,17 @@ const swiper = new Swiper(".events__swiper", {
         nextEl: ".swiperButton-next",
         prevEl: ".swiperButton-prev",
     },
+});
+
+const tabButtons = document.querySelectorAll('.tab-btn');
+const insideKidztarTabContent = document.querySelectorAll('.inside-kidztar__tab-content');
+
+tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        tabButtons.forEach(btn => btn.classList.remove('tab-btn--active'));
+        insideKidztarTabContent.forEach(content => content.classList.remove('inside-kidztar__tab-content--active'));
+
+        button.classList.add('tab-btn--active');
+        document.getElementById(button.dataset.tab).classList.add('inside-kidztar__tab-content--active');
+    });
 });
