@@ -2,6 +2,7 @@
 @use 'global';
 @use 'reset';
 @use 'fonts';
+@use 'teachers';
 @use '../../node_modules/swiper/swiper-bundle.css';
 
 body {
@@ -31,7 +32,7 @@ button {
     background-image: url(../images/header-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: bottom center;
+    background-position: center center;
 }
 
 .header-v2 {
@@ -73,6 +74,10 @@ button {
         line-height: 1.5;
         font-size: 16px;
     }
+}
+
+.header__logo {
+    cursor: pointer;
 }
 
 .menu {
@@ -451,8 +456,6 @@ button {
 }
 
 .exp-teachers {
-    margin-bottom: 120px;
-
     &__inner {
         display: flex;
         flex-direction: column;
@@ -538,6 +541,7 @@ button {
         line-height: 1.5;
         font-size: 16px;
         margin-top: 64px;
+        margin-bottom: 120px;
         cursor: pointer;
     }
 }
@@ -1291,7 +1295,7 @@ button {
 
 .header-v1 {
     background-image: url('../images/header-v1-bg.jpg');
-    background-position: top center;
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     padding-top: 32px;
@@ -2826,7 +2830,6 @@ button {
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
-    margin-bottom: 120px;
 
     &__breadcrumbs {
         display: flex;
@@ -2838,6 +2841,10 @@ button {
         opacity: .5;
     }
 
+    &__breadcrumbs-item:last-child {
+        @extend %poppins-600;
+    }
+
     &__breadcrumbs span {
         padding: 0 16px;
     }
@@ -2847,6 +2854,10 @@ button {
         font-size: 64px;
         line-height: 1.25;
     }
+}
+
+.heading--about {
+    margin-bottom: 120px;
 }
 
 .provide {
@@ -2933,5 +2944,10 @@ button {
 }
 
 .video-section {
+    margin-top: 120px;
     margin-bottom: 100px;
+}
+
+.header__menu-link--active {
+    @extend %poppins-600;
 }

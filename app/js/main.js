@@ -75,11 +75,6 @@ const fromBlogSwiper = new Swiper(".from-blog-slider__swiper", {
 });
 
 const expTeachersItemCard = document.querySelectorAll('.exp-teachers__item');
-const expTeachersItemCard__active = document.querySelectorAll('.exp-teachers__item--active');
-const expTeachersSocial = document.querySelector('.exp-teachers__social');
-const expTeachersPhotoDecor = document.querySelector('.exp-teachers__photo-decor');
-const expTeachersInfo_bg = document.querySelector('.exp-teachers__info');
-
 
 expTeachersItemCard.forEach(teacherCard => {
     teacherCard.addEventListener('mouseenter', () => {
